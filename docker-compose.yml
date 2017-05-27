@@ -2,6 +2,10 @@ version: '3'
 services:
   web:
     build: .
+    environment:
+      - DB_HOST=db
+      - DB_USERNAME=postgres
+      - DB_PASSWORD=postgres
     command: tail -f /dev/null
     volumes:
       - .:/usr/src/app
