@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="eight columns offset-by-two columns">
+      <h1>Criar uma nova conta</h1>
+
+      <%= form_for(@user) do |f| %>
+        <div class="row">
+          <div class="six columns">
+            <%= f.label :username %>
+            <%= f.text_field :username, class: 'u-full-width', required: true %>
+            <% if @user.errors.has_key?(:username) %>
+              <strong><%= @user.errors.messages[:username].first %></strong>
+            <% end %>
+          </div>
+          <div class="six columns">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'u-full-width', required: true %>
+            <% if @user.errors.has_key?(:email) %>
+              <strong><%= @user.errors.messages[:email].first %></strong>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="six columns">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'u-full-width', required: true %>
+            <% if @user.errors.has_key?(:password) %>
+              <strong><%= @user.errors.messages[:password].first %></strong>
+            <% end %>
+          </div>
+            <div class="six columns">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, class: 'u-full-width', required: true %>
+              <% if @user.errors.has_key?(:password_confirmation) %>
+                <strong><%= @user.errors.messages[:password_confirmation].first %></strong>
+              <% end %>
+            </div>
+        </div>
+        <div class="actions text-right">
+          <%= f.submit "Criar conta", class: 'button-primary u-pull-right' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
