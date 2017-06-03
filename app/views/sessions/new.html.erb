@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="six columns offset-by-three columns">
+      <h1>Entrar</h1>
+
+      <%= form_for(:session, url: login_path) do |f| %>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.label :email %>
+            <%= f.email_field :email, class: 'u-full-width', required: true %>
+            <% if @authenticate_message %>
+              <strong><%= @authenticate_message %></strong>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'u-full-width', required: true %>
+          </div>
+        </div>
+        <div class="actions text-right">
+          <%= f.submit "Entrar", class: 'button-primary u-pull-right' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
