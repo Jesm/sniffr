@@ -24,3 +24,10 @@
 .main-nav ul li:first-child{
   margin-left: 0;
 }
+
+.animal-list{
+  list-style: none;
+}
+.animal-list .animal-title{
+  font-size: 2rem;
+}

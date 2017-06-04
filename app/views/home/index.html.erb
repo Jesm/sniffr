@@ -1,7 +1,26 @@
 <div class="container">
   <div class="row">
     <div class="twelve columns">
-      <h1>Hello world!</h1>
+      <h1>Animais</h1>
+
+      <ul class="row animal-list">
+        <% @animals.each do |animal| %>
+          <li class="four columns">
+            <div class="animal-title">
+              <strong><%= animal.name %></strong>
+              <em><%= animal.species %></em>
+            </div>
+            <span>Porte: <%= I18n.t("activerecord.attributes.animal.sizes.#{ animal.size }") %></span>
+            <% if animal.breed %>
+              <span>, </span>
+              <span>Raça: <%= animal.breed %></span>
+            <% end %>
+            <span>, </span>
+            <span>Idade: <%= animal.age < 1 ? "Menos de 1 ano" : "#{ animal.age } ano(s)" %></span><br>
+            <span>Usuário: <%= animal.user.username %></span>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </div>

@@ -9,7 +9,7 @@
     </div>
     <div class="six columns">
       <%= f.label :size %>
-      <% size_options = Animal.sizes.map {|key, _| [I18n.t("activerecord.attributes.animal.sizes.#{key}"), key]} %>
+      <% size_options = Animal.sizes.map {|key, _| [I18n.t("activerecord.attributes.animal.sizes.#{ key }"), key]} %>
       <%= f.select :size, size_options, {}, class: 'u-full-width', required: true %>
       <% if animal.errors.has_key?(:size) %>
         <strong><%= animal.errors.messages[:size].first %></strong>

@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    # TODO
+    @animals = Animal.all.includes(:user).order(updated_at: :desc)
   end
 end
