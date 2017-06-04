@@ -10,8 +10,11 @@
 
   <body>
     <nav class="container main-nav">
+      <%= link_to 'Home', home_path %>
+
       <ul class="u-pull-right u-cf">
         <% if current_user %>
+          <li class="u-pull-left"><%= link_to 'Cadastrar animal', create_animal_path %></li>
           <li class="u-pull-left"><%= link_to 'Sair', logout_path, method: 'delete' %></li>
         <% else %>
           <li class="u-pull-left"><%= link_to 'Entrar', login_path %></li>

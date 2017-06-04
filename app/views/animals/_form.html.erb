@@ -1,0 +1,45 @@
+<%= form_for(animal) do |f| %>
+  <div class="row">
+    <div class="six columns">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'u-full-width', required: true %>
+      <% if animal.errors.has_key?(:name) %>
+        <strong><%= animal.errors.messages[:name].first %></strong>
+      <% end %>
+    </div>
+    <div class="six columns">
+      <%= f.label :size %>
+      <% size_options = Animal.sizes.map {|key, _| [I18n.t("activerecord.attributes.animal.sizes.#{key}"), key]} %>
+      <%= f.select :size, size_options, {}, class: 'u-full-width', required: true %>
+      <% if animal.errors.has_key?(:size) %>
+        <strong><%= animal.errors.messages[:size].first %></strong>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="four columns">
+      <%= f.label :species %>
+      <%= f.text_field :species, class: 'u-full-width', required: true %>
+      <% if animal.errors.has_key?(:species) %>
+        <strong><%= animal.errors.messages[:species].first %></strong>
+      <% end %>
+    </div>
+    <div class="four columns">
+      <%= f.label :breed %>
+      <%= f.text_field :breed, class: 'u-full-width' %>
+      <% if animal.errors.has_key?(:breed) %>
+        <strong><%= animal.errors.messages[:breed].first %></strong>
+      <% end %>
+    </div>
+    <div class="four columns">
+      <%= f.label :birth_date %>
+      <%= f.date_field :birth_date, class: 'u-full-width', required: true %>
+      <% if animal.errors.has_key?(:birth_date) %>
+        <strong><%= animal.errors.messages[:birth_date].first %></strong>
+      <% end %>
+    </div>
+  </div>
+  <div class="actions text-right">
+    <%= f.submit 'Salvar', class: 'button-primary u-pull-right' %>
+  </div>
+<% end %>

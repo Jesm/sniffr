@@ -6,7 +6,7 @@
       <%= form_for(:session, url: login_path) do |f| %>
         <div class="row">
           <div class="twelve columns">
-            <%= f.label :email %>
+            <%= f.label :email, I18n.t("activerecord.attributes.user.email") %>
             <%= f.email_field :email, class: 'u-full-width', required: true %>
             <% if @authenticate_message %>
               <strong><%= @authenticate_message %></strong>
@@ -15,7 +15,7 @@
         </div>
         <div class="row">
           <div class="twelve columns">
-            <%= f.label :password %>
+            <%= f.label :password, I18n.t("activerecord.attributes.user.password")%>
             <%= f.password_field :password, class: 'u-full-width', required: true %>
           </div>
         </div>
